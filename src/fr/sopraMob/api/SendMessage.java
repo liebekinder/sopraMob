@@ -8,7 +8,11 @@ package fr.sopraMob.api;
  * 
  */
 public class SendMessage {
-	
+	/**
+	 * 
+	 * @param msg
+	 * @param id
+	 */
 	public void sendMessage(String msg, String id) {
 		// test if android device
 		SendToGCM sGCM = new SendToGCM();

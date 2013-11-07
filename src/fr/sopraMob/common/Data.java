@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Data {
 
-	public static final String API_KEY = "AIzaSyD1ok0fUhwPNjwGXLiBquadqSI0uv3KXDs";
+	public static final String API_KEY = "AIzaSyBHUc_V8YIxUsol1abJGo-qlkLvsBTQVcA";
 	private static Set<String> listOfRegisteredId;
 
 	public Data() {
