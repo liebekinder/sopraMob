@@ -1,6 +1,7 @@
 package fr.sopraMob.common;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Register
+ * 
+ * @author Sébastien
+ *Servlet for client registering
  */
 @WebServlet("/Register")
 public class Register extends HttpServlet {
@@ -23,10 +26,19 @@ public class Register extends HttpServlet {
     }
 
 	/**
+	 * Client registers via POST. We are supposed to know which platform is used.
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @author Sébastien
+	 * 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String id = request.getParameter("id");
+	      if (id == null || id.trim().length() == 0) {
+	         throw new ServletException("Parameter id not found");
+	      }
+
+	      Data.register(id);
+	      response.setStatus(HttpServletResponse.SC_OK);
 	}
 
 }
