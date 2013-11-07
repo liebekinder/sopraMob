@@ -2,11 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>sopraMob</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>WEB-INF/SendMessage</welcome-file>
   </welcome-file-list>
+      <servlet>
+        <servlet-name>SendMessage</servlet-name>
+        <servlet-class>fr.sopraMob.common.MessageTreatment</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>SendMessage</servlet-name>
+        <url-pattern>/SendMessage</url-pattern>
+    </servlet-mapping>
 </web-app>
