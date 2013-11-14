@@ -30,7 +30,7 @@ public class SendToGCM {
 		Message message = new Message.Builder().addData("title", msg).addData("message", msg).build();
 		Result result = null;
 	      try {
-	         result = sender.send(message, id, 5);
+	         result = sender.send(message, id, 2);
 	      }catch(InvalidRequestException e){
 	          logger.log(Level.SEVERE, "Error posting messages",e);
 	      }catch(IllegalArgumentException e){
@@ -43,6 +43,8 @@ public class SendToGCM {
 	         if (result.getErrorCodeName().equals(Constants.ERROR_NOT_REGISTERED)) {
 	            Data.unregister(id);
 	         }
+
+	          logger.log(Level.SEVERE, "");	   
 	      }
 	}
 }
