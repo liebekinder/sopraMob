@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>sopraMob</display-name>
-  <welcome-file-list>
-    <welcome-file>WEB-INF/SendMessage</welcome-file>
-  </welcome-file-list>
-      <servlet>
-        <servlet-name>SendMessage</servlet-name>
-        <servlet-class>fr.sopraMob.common.MessageTreatment</servlet-class>
-    </servlet> 
-    <servlet-mapping>
-        <servlet-name>SendMessage</servlet-name>
-        <url-pattern>/SendMessage</url-pattern>
-    </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>sopraMob</display-name>
+	<welcome-file-list>
+		<welcome-file>MessageTreatment</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>MessageTreatment</servlet-name>
+		<servlet-class>fr.sopraMob.common.MessageTreatment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MessageTreatment</servlet-name>
+		<url-pattern>/MessageTreatment</url-pattern>
+	</servlet-mapping>
 </web-app>

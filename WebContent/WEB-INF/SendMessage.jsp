@@ -12,7 +12,7 @@
 
 	<h2>Systeme de notifications</h2>
 
-	<form action="SendMessage" method="get">
+	<form action="MessageTreatment" method="get">
 		<label>Message a diffuser </label> <br />
 		<p>
 			<textarea name="Message" rows="3" cols="60"> </textarea>

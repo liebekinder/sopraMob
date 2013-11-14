@@ -25,26 +25,22 @@ public class MessageTreatment extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		if (request.getParameter("Message") != null
-				&& !request.getParameter("Message").isEmpty()) {
+				&& !request.getParameter("Message").isEmpty() && request.getParameter("id") != null && !request.getParameter("id").isEmpty()) {
 			//only if we have a message to send
 			String Message = request.getParameter("Message");
+			String id = request.getParameter("id");
 			System.out.println(Message);
 			SendMessage sendmsg = new SendMessage();
 			//Google
 			sendmsg.sendMessage(
 					Message,
-					"APA91bFwtJld24GqiaYxNkcHZri4oQQ4tbTuR7Q-DluP8sU6ELl76EN6CAi361o4DuEWaBVY_adS5LTjHHZBnAaAkV3_pEl4PZCxC0w4WTh_s2GJ4PRyDYnKite3O_wzj5q5sMFCCburhGfH-5jTcNU-8i7QejlYyvTH17ExuY4bg4cqmy8yG-U",ServeurType.GOOGLE);
+					id,ServeurType.GOOGLE);
 			//WP
 			sendmsg.sendMessage(Message, "xxx", ServeurType.WP);
 		}
 		else{
-			System.out.println(Data.register("ihfafaf_gazgfaz_g_gaezaeg_aegaze_gzegazeg_"));
-			for(String s: Data.getIdList()){
-				System.out.println(s);
-			}
-			System.out.println(Data.nbIds());
-			request.setAttribute("liste_id", Data.getIdList2());
 		}
+		request.setAttribute("liste_id", Data.getIdList());
 		this.getServletContext().getRequestDispatcher(VUE_UTILISATEUR)
 				.forward(request, response);
 	}
