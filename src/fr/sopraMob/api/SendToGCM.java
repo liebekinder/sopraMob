@@ -15,7 +15,7 @@ import fr.sopraMob.common.Data;
 
 /**
  * Send message to user via GCM
- * @author Sébastien
+ * @author Sï¿½bastien
  *
  */
 public class SendToGCM {
@@ -26,6 +26,7 @@ public class SendToGCM {
 	public SendToGCM(){}
 	
 	public void sendMessage(String msg, String id){
+		System.out.println("Send to android !");
 		//construction d'un message
 		Message message = new Message.Builder().addData("title", msg).addData("message", msg).build();
 		Result result = null;

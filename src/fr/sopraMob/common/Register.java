@@ -10,34 +10,45 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 
- * @author Sébastien
- *Servlet for client registering
+ * @author Sï¿½bastien Servlet for client registering
  */
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Register() {
-        super();
-    }
 
 	/**
-	 * Client registers via POST. We are supposed to know which platform is used.
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 * @author Sébastien
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Register() {
+		super();
+	}
+
+	/**
+	 * Client registers via POST. We are supposed to know which platform is
+	 * used.
+	 * 
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 * @author Sï¿½bastien
 	 * 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-	      if (id == null || id.trim().length() == 0) {
-	         throw new ServletException("Parameter id not found");
-	      }
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Camembert");
+		String id =  testAndGetParamFromMessage(request, "id");
+		String phoneTypeTxt = testAndGetParamFromMessage(request, "phoneType");
+		String phoneOwner = testAndGetParamFromMessage(request, "phoneOwner");
 
-	      Data.register(id);
-	      response.setStatus(HttpServletResponse.SC_OK);
+		Data.register(id, ServeurType.getFromText(phoneTypeTxt), phoneOwner);
+		response.setStatus(HttpServletResponse.SC_OK);
+	}
+
+	private String testAndGetParamFromMessage(HttpServletRequest request, String paramName) throws ServletException {
+		String param = request.getParameter(paramName);
+		if (param == null || param.trim().length() == 0) {
+			throw new ServletException("Parameter "+paramName+" not found");
+		}
+		return param;
 	}
 
 }

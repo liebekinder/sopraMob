@@ -31,16 +31,13 @@ public class MessageTreatment extends HttpServlet {
 			String id = request.getParameter("id");
 			System.out.println(Message);
 			SendMessage sendmsg = new SendMessage();
-			//Google
-			sendmsg.sendMessage(
-					Message,
-					id,ServeurType.GOOGLE);
-			//WP
-			sendmsg.sendMessage(Message, "xxx", ServeurType.WP);
+	
+			sendmsg.sendMessage(Message,id);
+			
 		}
 		else{
 		}
-		request.setAttribute("liste_id", Data.getIdList());
+		request.setAttribute("liste_id", Data.getOwnersList());
 		this.getServletContext().getRequestDispatcher(VUE_UTILISATEUR)
 				.forward(request, response);
 	}
