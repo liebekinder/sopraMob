@@ -28,4 +28,11 @@
     </plugins>
   </build>
   <url>http://github.com/liebekinder/sopraMob</url>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.notnoop.mpns</groupId>
+  		<artifactId>mpns</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

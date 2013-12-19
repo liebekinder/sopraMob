@@ -177,7 +177,7 @@ public class Data {
 	public static ServeurType getPhoneType(String id) {
 		loadDatabase();
 		if(listOfRegisteredId.containsKey(id)) {
-			System.out.println("PhonType:"+listOfRegisteredId.get(id).getPhoneType());
+			System.out.println("PhoneType:"+listOfRegisteredId.get(id).getPhoneType());
 			return listOfRegisteredId.get(id).getPhoneType();
 		}
 		return null;
