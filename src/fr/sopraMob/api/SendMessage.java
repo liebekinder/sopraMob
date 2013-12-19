@@ -1,6 +1,6 @@
 package fr.sopraMob.api;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import fr.sopraMob.common.Data;
 import fr.sopraMob.common.ServeurType;
@@ -23,7 +23,7 @@ public class SendMessage {
 		// test if android device
 		
 		
-		ArrayList<String> phones = Data.getPhonesByOwner(phoneOwner);
+		HashSet<String> phones = Data.getPhonesByOwner(phoneOwner);
 		if(phones==null) {
 			System.out.println("No phones found");
 			return;

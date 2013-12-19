@@ -19,7 +19,7 @@ public class Data {
 	public static final String API_KEY = "AIzaSyBHUc_V8YIxUsol1abJGo-qlkLvsBTQVcA";
 	private static Map<String,Infos> listOfRegisteredId;
 	//association owner / id list
-	private static Map<String,ArrayList<String>> listOfOwners;
+	private static Map<String,HashSet<String>> listOfOwners;
 	private static final String PROJECTID="968947276795";
 	private static final String bddPath = "bdd";
 	private static final String separator = "JaimeLeCamembertEspeceDeTrollDesNeigesEnFurie";
@@ -50,7 +50,7 @@ public class Data {
 			listOfOwners.get(phoneOwner).add(id);
 		}
 		else {
-			listOfOwners.put(phoneOwner, new ArrayList<String>(Arrays.asList(id)));
+			listOfOwners.put(phoneOwner, new HashSet<String>(Arrays.asList(id)));
 		}
 	}
 
@@ -98,7 +98,7 @@ public class Data {
 		
 		//TODO load file
 		Data.listOfRegisteredId = new HashMap<String,Infos>();
-		Data.listOfOwners = new HashMap<String, ArrayList<String>>();
+		Data.listOfOwners = new HashMap<String, HashSet<String>>();
 		
 		File bdd = new File(bddPath);
 		if(!bdd.exists()) {
@@ -147,10 +147,8 @@ public class Data {
 	private static void addNewEntry(String line) {
 		if(line==null || line.equals("")) return;
 		String[] splitEntry = line.split(separator);
-		System.out.println(splitEntry.length);
 		listOfRegisteredId.put(splitEntry[0], new Infos(ServeurType.getFromText(splitEntry[1]), splitEntry[2]));
 		addPhoneToOwner(splitEntry[2], splitEntry[0]);
-		System.out.println(splitEntry[2]);
 	}
 
 	public static String getProjectId(){
@@ -185,7 +183,7 @@ public class Data {
 		return null;
 	}
 
-	public static ArrayList<String> getPhonesByOwner(String phoneOwner) {
+	public static HashSet<String> getPhonesByOwner(String phoneOwner) {
 		if(listOfOwners.containsKey(phoneOwner)) return listOfOwners.get(phoneOwner);
 		return null;
 	}
